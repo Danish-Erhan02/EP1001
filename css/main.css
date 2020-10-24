@@ -1790,7 +1790,10 @@ header .logo a {
  * ------------------------------------------------------------------- 
  */
 #portfolio {
-	background-image: url('https://images.newscientist.com/wp-content/uploads/2020/07/28142014/pry2ht_web.jpg.jpg');
+	background: #313131 url(../images/coverfoto.jpg) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
 	padding-top: 12rem;
 	padding-bottom: 12rem;
 }
