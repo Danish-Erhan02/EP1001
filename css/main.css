@@ -1794,6 +1794,8 @@ header .logo a {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
+	padding-top: 12rem;
+	padding-bottom: 12rem;
 	
 }
 #portfolio .folio-item {
