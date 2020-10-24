@@ -1790,7 +1790,7 @@ header .logo a {
  * ------------------------------------------------------------------- 
  */
 #portfolio {
-	background: transparent url(../images/martin-adams-J2f1PriKFEg-unsplash.jpg) no-repeat center;
+	background: #87F1D8 url(../images/martin-adams-J2f1PriKFEg-unsplash.jpg) no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
