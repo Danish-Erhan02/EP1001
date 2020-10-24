@@ -1791,11 +1791,6 @@ header .logo a {
  */
 #portfolio {
 	background-image: url('https://images.newscientist.com/wp-content/uploads/2020/07/28142014/pry2ht_web.jpg.jpg');
-	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-	filter: blur(5px);
 	padding-top: 12rem;
 	padding-bottom: 12rem;
 }
