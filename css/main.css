@@ -1790,14 +1790,9 @@ header .logo a {
  * ------------------------------------------------------------------- 
  */
 #portfolio {
-	background: #87F1D8 url(../images/martin-adams-J2f1PriKFEg-unsplash.jpg) no-repeat center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
+	background: #87F1D8;
 	padding-top: 12rem;
 	padding-bottom: 12rem;
-	color: white;
-	position: relative;
 	
 }
 #portfolio .folio-item {
