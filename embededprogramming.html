@@ -100,81 +100,44 @@
 
 			   </p>
 	   <br/>
-			   
+	   <h4>Sample Code</h4>
+		<br/>	   
 			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid rgb(214, 14, 74);
 				border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 135%"><span style="color: #008800;
 				 font-weight: bold"></span> <span style="background-color: #fff0f0">&#39;
  
- #include <Stepper.h>
- 
-	#define STEPS 2038 // the number of steps in one revolution of your motor (28BYJ-48)
+ #include <iostream>
+	using namespace std;
 	
-	Stepper stepper(STEPS, 8, 10, 9, 11);
+	int main()
+	{
+		int n, t1 = 0, t2 = 1, nextTerm = 0;
 	
-  // this constant won't change. It's the pin number of the sensor's output:
-  
-  const int pingPin = 7;
-  
-  
+		cout << "Enter the number of terms: ";
+		cin >> n;
 	
-	void setup() {
-	  // initialize serial communication:
-   Serial.begin(9600);
-	stepper.setSpeed(10);
-	}
-   
-   void loop() {
-   ////////////////////////////////////////////////////////// SENSOR CODE
-   // establish variables for duration of the ping, and the distance result
-	// in centimeters:
-	long duration, cm;
-  
-	// The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
-	// Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
-	pinMode(pingPin, OUTPUT);
-	digitalWrite(pingPin, LOW);
-	delayMicroseconds(2);
-	digitalWrite(pingPin, HIGH);
-	delayMicroseconds(5);
-	digitalWrite(pingPin, LOW);
-  
-	// The same pin is used to read the signal from the PING))): a HIGH pulse
-	// whose duration is the time (in microseconds) from the sending of the ping
-	// to the reception of its echo off of an object.
-	pinMode(pingPin, INPUT);
-	duration = pulseIn(pingPin, HIGH);
-  
-	// convert the time into a distance
-	cm = microsecondsToCentimeters(duration);
-  
-   // Serial.print(cm);
-   // Serial.print("cm");
-   // Serial.println();
-  
-   // delay(25);
+		cout << "Fibonacci Series: ";
 	
-  ////////////////////////////////////////////////////////////////// STEPPER CODE
-  
-  if (cm < 15){
-  
-   stepper.step(642);
-   delay(3000);
-   stepper.step(-642);
-   delay(250);
-   stepper.step(0);
-  
-  }
-  
-  else {
-   stepper.step(0);
-   delay(500);
-   
-	}
-  }
-  
-  
-  long microsecondsToCentimeters(long microseconds) {
-	return microseconds / 29 / 2;
+		for (int i = 1; i <= n; ++i)
+		{
+			// Prints the first two terms.
+			if(i == 1)
+			{
+				cout << " " << t1;
+				continue;
+			}
+			if(i == 2)
+			{
+				cout << t2 << " ";
+				continue;
+			}
+			nextTerm = t1 + t2;
+			t1 = t2;
+			t2 = nextTerm;
+			
+			cout << nextTerm << " ";
+		}
+		return 0;
 	} 
  
  &#39;</span>
