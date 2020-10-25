@@ -1490,10 +1490,7 @@ header .logo a {
  * ------------------------------------------------------------------- 
  */
 #about {
-	background: transparent url(../images/oleg-laptev-7jQh3EiS8Bs-unsplash.jpg) no-repeat center bottom;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
+	background: #FFFFFF;
 	padding-top: 12rem;
 	padding-bottom: 15rem;
 }
