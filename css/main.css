@@ -1490,7 +1490,7 @@ header .logo a {
  * ------------------------------------------------------------------- 
  */
 #about {
-	background: transparent url(../images/joakim-nadell-K67sBVqLLuw-unsplash.jpg) no-repeat center bottom;
+	background: transparent url(../images/) no-repeat center bottom;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
