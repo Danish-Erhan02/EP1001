@@ -94,43 +94,48 @@
    
    	<div class="row about-content">
 
+		<h4>What is an ISP PCB?</h4>
+		<ul>
+			<li>It allows firmware updates to be delivered to the on-chip memory of microcontrollers 
+				and related processors without requiring specialist programming circuitry on the circuit board, and simplifies design work.</li>
+			<li>It allows manufacturers of electronic devices to integrate programming and testing into a single production phase, and save money,
+				 rather than requiring a separate programming stage prior to assembling the system. </li>
+			<li>This may allow manufacturers to program the chips in their own system's production line instead of buying preprogrammed chips from a manufacturer
+				 or distributor, making it feasible to apply code or design changes in the middle of a production run.</li>
+			
+		</ul>
+		<p>Source: <a href="https://en.wikipedia.org/wiki/In-system_programming"><u>In-system programming</u></a></p>
+		<br/>
+		<center><img src="images/isp_pcb_model.jpg" width="700"></center>
+		<br/>
 
-			<h4>Softwares</h4>
+			<h4>Software Tools</h4>
    			<ul>
-				<li><a href="https://www.autodesk.com/products/eagle/overview?plc=F360&term=1-YEAR&support=ADVANCED&quantity=1"> EAGLE </a></li>
-				<li><a href="https://camotics.org/download.html"> CAMotics </a></li>
-				<li><a href="https://skeatz.github.io/mods/"> Mods </a></li>
+				<li><a href="https://www.autodesk.com/products/eagle/overview?plc=F360&term=1-YEAR&support=ADVANCED&quantity=1"><u>EAGLE</u></a></li>
+				<li><a href="https://camotics.org/download.html"><u>CAMotics</u></a></li>
+				<li><a href="https://skeatz.github.io/mods/"><u>Mods</u></a></li>
 			</ul>
 			<br/>
 
-			<p>To mill an ISP PCB, these are the PCB diagrams you will first need: <a href="/EP1001/images/isp_traces.png">trace</a>
+			<p>To mill an ISP PCB, these are the PCB diagrams you will need: <a href="/EP1001/images/isp_traces.png">trace</a>
 				 and <a href="/EP1001/images/isp_outline.png">outline</a>.
 			</p>
-
-			<h4>What is an ISP PCB?</h4>
-			<ul>
-				<li>It allows firmware updates to be delivered to the on-chip memory of microcontrollers 
-					and related processors without requiring specialist programming circuitry on the circuit board, and simplifies design work.</li>
-				<li>It allows manufacturers of electronic devices to integrate programming and testing into a single production phase, and save money,
-					 rather than requiring a separate programming stage prior to assembling the system. </li>
-				<li>This may allow manufacturers to program the chips in their own system's production line instead of buying preprogrammed chips from a manufacturer
-					 or distributor, making it feasible to apply code or design changes in the middle of a production run.</li>
-				
-			</ul>
 			<br/>
-			<p>Source: <a href="https://en.wikipedia.org/wiki/In-system_programming">In-system programming</a></p>
-			<br/>
-			<center><img src="images/isp_pcb_model.jpg" width="750"></center>
-			<br/>
-
 
 			<h4>How to prepare your files for 2D Milling?</h4>
 			<p>
 				<b>Step 1: </b>Save a picture of your PCB diagram as a PNG file.<br/>
 				<b>Step 2: </b>Open up <a href="https://skeatz.github.io/mods/">Mods</a>.<br/>
 				<b>Step 3: </b>From Mods, under settings, click Programs >> Open Server Programs >> Mill 2D PCB PNG. <br/>
-				<b>Step 4: </b>Click here to get settings for <a href="/EP1001/images/traces_settings.png"></a> <br/>
+				<b>Step 4: </b>Click here to get settings for <a href="/EP1001/images/traces_settings.png">traces</a>.<br/>
+				<b>Step 5: </b>Or lick here to get settings for <a href="/EP1001/images/outline_settings.png">outline</a>.<br/>
+				<b>Step 6: </b>After configuring the settings, click <i>Calculate</i>. This will convert the PNG file to NC file which is the 
+				G-code. <br/>
+				<b>Step 7: </b>To simulate the milling operation, open up CAMotics software.<br/>
+				<b>Step 8: </b>Import your NC file into the software.  
+
 			</p>
+
    	</div>
 
 
