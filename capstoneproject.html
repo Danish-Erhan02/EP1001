@@ -131,6 +131,67 @@
 			<center><img src="/EP1001/images/3D_print.jpeg" width="700"></center><br/>
 			<center><img src="/EP1001/images/laser_cut.jpeg" width="700"></center><br/>
 
+			<h4>Programming</h4>
+			<p>I used Arduino IDE for programming. Below is the code I've written for my program.</p><br/>
+
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #aaaaaa; font-style: italic">/*</span>
+<span style="color: #aaaaaa; font-style: italic"> Controlling a servo position using a potentiometer (variable resistor)</span>
+<span style="color: #aaaaaa; font-style: italic"> by Michal Rinott &lt;http://people.interaction-ivrea.it/m.rinott&gt;</span>
+
+<span style="color: #aaaaaa; font-style: italic"> modified on 8 Nov 2013</span>
+<span style="color: #aaaaaa; font-style: italic"> by Scott Fitzgerald</span>
+<span style="color: #aaaaaa; font-style: italic"> http://www.arduino.cc/en/Tutorial/Knob</span>
+<span style="color: #aaaaaa; font-style: italic">*/</span>
+
+<span style="color: #4c8317">#include &lt;Servo.h&gt;</span>
+
+Servo myservo;  <span style="color: #aaaaaa; font-style: italic">// create servo object to control a servo</span>
+Servo myservo1;  <span style="color: #aaaaaa; font-style: italic">// create servo object to control a servo</span>
+Servo myservo2;  <span style="color: #aaaaaa; font-style: italic">// create servo object to control a servo</span>
+Servo myservo3;  <span style="color: #aaaaaa; font-style: italic">// create servo object to control a servo</span>
+
+<span style="color: #00aaaa">int</span> potpin = <span style="color: #009999">0</span>;  <span style="color: #aaaaaa; font-style: italic">// analog pin 0</span>
+<span style="color: #00aaaa">int</span> val;    <span style="color: #aaaaaa; font-style: italic">// variable to read the value from the analog pin</span>
+
+<span style="color: #00aaaa">int</span> potpin1 = <span style="color: #009999">1</span>;  <span style="color: #aaaaaa; font-style: italic">// analog pin 1</span>
+<span style="color: #00aaaa">int</span> val1;    <span style="color: #aaaaaa; font-style: italic">// variable to read the value from the analog pin</span>
+
+<span style="color: #00aaaa">int</span> potpin2 = <span style="color: #009999">2</span>;  <span style="color: #aaaaaa; font-style: italic">// analog pin 1, LED</span>
+<span style="color: #00aaaa">int</span> val2;    <span style="color: #aaaaaa; font-style: italic">// variable to read the value from the analog pin</span>
+
+<span style="color: #00aaaa">int</span> potpin3 = <span style="color: #009999">4</span>;  <span style="color: #aaaaaa; font-style: italic">// analog pin 1, BOTTOMCENTER</span>
+<span style="color: #00aaaa">int</span> val3;    <span style="color: #aaaaaa; font-style: italic">// variable to read the value from the analog pin</span>
+
+
+
+<span style="color: #00aaaa">void</span> <span style="color: #00aa00">setup</span>() {
+  myservo.attach(<span style="color: #009999">7</span>);  <span style="color: #aaaaaa; font-style: italic">// attaches to Arduino pin 7 PWM</span>
+  myservo1.attach(<span style="color: #009999">8</span>);  <span style="color: #aaaaaa; font-style: italic">// attaches to Arduino pin 8 PWM</span>
+  myservo2.attach(<span style="color: #009999">6</span>);  <span style="color: #aaaaaa; font-style: italic">// attaches to Arduino pin 6 PWM , TOPCENTER</span>
+   myservo3.attach(<span style="color: #009999">5</span>);  <span style="color: #aaaaaa; font-style: italic">// attaches to Arduino pin 5 PWM , BOTTOMLEFT</span>
+}
+
+<span style="color: #00aaaa">void</span> <span style="color: #00aa00">loop</span>() {
+  val = analogRead(potpin);            <span style="color: #aaaaaa; font-style: italic">// reads the value of the potentiometer (value between 0 and 1023)</span>
+  val = map(val, <span style="color: #009999">0</span>, <span style="color: #009999">1023</span>, <span style="color: #009999">0</span>, <span style="color: #009999">180</span>);     <span style="color: #aaaaaa; font-style: italic">// scale it to use it with the servo (value between 0 and 180)</span>
+  val1 = analogRead(potpin1);            <span style="color: #aaaaaa; font-style: italic">// reads the value of the potentiometer (value between 0 and 1023)</span>
+  val1 = map(val1, <span style="color: #009999">0</span>, <span style="color: #009999">1023</span>, <span style="color: #009999">0</span>, <span style="color: #009999">180</span>);     <span style="color: #aaaaaa; font-style: italic">// scale it to use it with the servo (value between 0 and 180)</span>
+  val2 = analogRead(potpin2);            <span style="color: #aaaaaa; font-style: italic">// reads the value of the potentiometer (value between 0 and 1023)</span>
+  val2 = map(val2, <span style="color: #009999">0</span>, <span style="color: #009999">1023</span>, <span style="color: #009999">0</span>, <span style="color: #009999">180</span>);     <span style="color: #aaaaaa; font-style: italic">// scale it to use it with the servo (value between 0 and 180)</span>
+  val3 = analogRead(potpin3);            <span style="color: #aaaaaa; font-style: italic">// reads the value of the potentiometer (value between 0 and 1023)</span>
+  val3 = map(val3, <span style="color: #009999">0</span>, <span style="color: #009999">1023</span>, <span style="color: #009999">0</span>, <span style="color: #009999">180</span>);     <span style="color: #aaaaaa; font-style: italic">// scale it to use it with the servo (value between 0 and 180)</span>
+  
+  
+  myservo.write(val);                  <span style="color: #aaaaaa; font-style: italic">// sets the servo position according to the scaled value</span>
+  myservo1.write(val1);                  <span style="color: #aaaaaa; font-style: italic">// sets the servo position according to the scaled value</span>
+  myservo2.write(val2);                  <span style="color: #aaaaaa; font-style: italic">// sets the servo position according to the scaled value</span>
+  myservo3.write(val3);                  <span style="color: #aaaaaa; font-style: italic">// sets the servo position according to the scaled value</span>
+  delay(<span style="color: #009999">30</span>);                           <span style="color: #aaaaaa; font-style: italic">// waits for the servo to get there</span>
+}
+</pre></div>
+
+
+
    	
    	</div>
 
