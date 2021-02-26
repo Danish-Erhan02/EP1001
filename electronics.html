@@ -103,124 +103,53 @@
 		<p>ISP stands for In-System Programmer. It allows firmware updates to be delivered to the on-chip memory of microcontrollers 
 			and related processors without requiring specialist programming circuitry on the circuit board, and simplifies design work.</p>
 		
-		<h4>What is a firmware?</h4>
-		<p>As the name suggests, FIRMware is a special software that is permanently burned or embedded onto
-			hardware device by the vendor. In other words, it is a software designed for a specific hardware. 
-			Once the firmware is burned aka uploaded into the chip, it will be <b>permanently</b> stored within the chip
-			in the form of Read-Only-Memory (ROM). A firmware acts as the intermediary between the hardware and 
-			the software. It provides intructions how the hardware should function. So what is the difference
-			between software and firmware? Firmware just handles very low level functions without which the 
-			device will become non-functional however software is used to address high level applications. 
-		</p>
-
-		<p>So for my first assignment, I will be making my own printed circuit board (PCB).</p><br/>
+		<p>So for my first assignment, I will be making my own ISP PCB.</p><br/>
 
 		<center><img src="/EP1001/images/isp_traces.png" width="700"></center><br/>
 		<center><img src="/EP1001/images/isp_outline.png" width="700"></center><br/>
 		<center><img src="images/my_isp.jpeg" width="700"></center><br/>
-			
 		
+		<p>Below were the components that I needed on my ISP PCB.</p>
+
+		<ul>
+			<li>UC_ATTINY45SI (Atmel Chip)</li>
+			<li>CONN_03X2_AVRISPSMD (AVRISP SMD)</li>
+			<li>CONN_06_FTDI-SMD-HEADER (FTDI chip)</li>
+			<li>FRAME</li>
+			<li>CAP_UNPOLARIZEDFAB (Capacitor)</li>
+			<li>R1206FAB (Resistor)</li>
+			<li>LEDFAB1206 (LED)</li>
+			<li>Vcc</li>
+			<li>Gnd</li>
+		</ul>
 	
 		<br/>
 
 			<h4>Software Tools</h4>
    			<ul>
 				<li><a href="https://www.autodesk.com/products/eagle/overview?plc=F360&term=1-YEAR&support=ADVANCED&quantity=1"><u>EAGLE</u></a></li>
-				<li><a href="https://camotics.org/download.html"><u>CAMotics</u></a></li>
 				<li><a href="https://skeatz.github.io/mods/"><u>Mods</u></a></li>
-			</ul>
-
-			
-
-
-			<p>
-				To mill a line test, these is the PCB diagram you will need: <a href="/EP1001/images/linetest.png"><u>linetest</u></a>.
-			</p>
-			<br/>
-
-			<h4>How to prepare your files for 2D Milling?</h4>
-			<p>
-				<b>Step 1: </b>Save a picture of your PCB diagram as a PNG file.<br/>
-				<b>Step 2: </b>Open up <a href="https://skeatz.github.io/mods/"><u>Mods</u></a>.<br/>
-				<b>Step 3: </b>From Mods, under settings, click Programs >> Open Server Programs >> Mill 2D PCB PNG. <br/>
-				<b>Step 4: </b>Click here to get <a href="/EP1001/images/traces_settings.png"><u>traces settings</u></a>. <br/>
-				<b>Step 5: </b>Click here to get <a href="/EP1001/images/outline_settings.png"><u>outline settings</u></a>. <br/>
-				<b>Step 6: </b>After configuring the settings, click Calculate. This will convert the PNG file to NC file which is the 
-				G-code. <br/>
-				<b>Step 7: </b>To simulate the milling operation, open up CAMotics software. Import your NC file into the software. <br/>
-				<b>Step 8: </b>Under the 'Simulation' tab, click Run, then click Play. This will simulate the milling operation. Below 
-				is an example of the ISP traces Simulation in the CAMotics software. <br/>
-
-				<center><img src="images/traces_simulation.png" width="700"></center><br/>
-
-			</p>
-
-			<h4>How to use EAGLES software to design your PCB?</h4>
-			<p>
-				<b>Step 1: </b>Download <a href="https://www.autodesk.com/products/eagle/overview?plc=F360&term=1-YEAR&support=ADVANCED&quantity=1"><u>EAGLES</u></a> software.          <br/>
-				<b>Step 2: </b>Download <a href="https://gitlab.fabcloud.org/pub/libraries/electronics/-/blob/master/eagle/fab.lbr"><u>fab_lbr</u></a>.<br/>
-				<b>Step 3: </b>Copy the fab_lbr into your library folder. This folder directory is Documents >> EAGLE >> Libraries.<br/>
-				<b>Step 4: </b>Open up your EAGLES software. On the left hand side, click on the Projects Tab, then right click on the project folder. Then, create new project.
-				Once new project folder has been created, right click on the new project folder and create 'schematics'.  <br/>
-				Ensure that your fab_lbr has been downloaded into your EAGLE library.
-				Now that your workspace is ready, we will try to design the circuit that is shown below. The example circuit drawn below is an ATtiny45 Hello World Board. 
-				Click here to obtain the <a href="/EP1001/images/helloworld.png"><u>schemetics</u>.</a>
-			</p>
-
-			<center><img src="images/helloworld1.png" width="700"></center></center>
+				<li><a href="https://ncviewer.com/"><u>NC Viewer</u></a></li>
+			</ul><br/>
 
 
+		<p>I used Mr Chew's, Mods to generate the nc file for the PCB Milling. Go to programmes > open server programme > mill 2D PCB png. Apply the settings for
+			the traces and ouline respectively. 
+		</p><br/>
+
+		<center><img src="/EP1001/images/traces_settings.png" width="700"></center><br/>
+		<center><img src="/EP1001/images/outline_settings.png" width="700"></center><br/>
 
 
-			<p>
-				<br/>...<br/>
-
-				<b>Step 5: </b>Use the 'Add Part' tool on the left hand side to add all the parts into the schematics. Use ' * ' to accsss the parts. For example,
-				type *FRAME* in the search bar to obtain the drawing frame of the circuit design. <br/>
-				<b>Step 6: </b>Use the 'Net' tool on the left side to create all of the connections in the circuit diagram. <br/>
-				<b>Step 7: </b>To move the parts, bring your cursor to the <i>plus</i> sign in the object and move around. And to rotate the part, repeat the same steps as before 
-			while doing a right click. Below are all the list of parts found in the eagle library that needs to be added into the cicuit for ATtiny45 Hello World Board.
-
-			</p>
-
-			<ul>
-				<li>UC_ATTINY45SI (Atmel Chip)</li>
-				<li>CONN_03X2_AVRISPSMD (AVRISP SMD)</li>
-				<li>CONN_06_FTDI-SMD-HEADER (FTDI chip)</li>
-				<li>FRAME</li>
-				<li>CAP_UNPOLARIZEDFAB (Capacitor)</li>
-				<li>R1206FAB (Resistor)</li>
-				<li>LEDFAB1206 (LED)</li>
-				<li>Vcc</li>
-				<li>Gnd</li>
-			</ul>
-			<br/>
-			<p>
-				<b>Step :</b> For parts that require value such as a resistor, click on the 'Add Value' too on the left to designate a value to the part. Once done, 
-					save and click 'Generate/Switch to Board' button on the top left which will result in what you see in the figure below. 
-				<br/>
-			
-			
-			
-			</p>
-
-			<p>
-				
-			<b>Step :</b><br/>
-			<b>Step :</b><br/>
-			<b>Step :</b><br/>
-			<b>Step :</b><br/>
-			<b>Step :</b><br/>
+		<br>To find out more on how to design using EAGLES, click on this <a href="https://www.youtube.com/watch?v=1AXwjZoyNno"><u>tutorial</u></a> <br/>
 		
-		</p>
-			
-			
-			<br/><br/>
 
-		<h4>How to use Stepcraft 2D CNC?</h4>
-		<p>The milling machine we wil be using is <a href="https://www.stepcraft.us/"><u>Stepcraft</u></a>. For safety reasons, <b>safety glasses must we worn at all times 
-			while operating the machine</b>. 
-		</p>
+	
+			
+			
+			
+
+		
 
 		<br/><h5>Recommended settings for Stepcraft</h5><br/>
 
